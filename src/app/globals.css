@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #07080c;
+  --bg-elevated: #0d0f15;
+  --bg-card: rgba(14, 16, 22, 0.78);
+  --text: #eceef3;
+  --muted: #9299a8;
+  --dim: #6d7483;
+  --accent: #7dd3c7;
+  --accent-soft: rgba(125, 211, 199, 0.14);
+  --accent-2: #aeb8ff;
+  --border: rgba(255, 255, 255, 0.075);
+  --ring: rgba(125, 211, 199, 0.45);
+
+  --fs-hero: clamp(2.25rem, 1.7rem + 2.6vw, 4rem);
+  --fs-hero-sub: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  --fs-section: clamp(2rem, 1.7rem + 1.1vw, 2.5rem);
+  --fs-card: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --fs-body: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  --fs-meta: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --fs-degree: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --fs-institution: clamp(0.875rem, 0.82rem + 0.2vw, 1rem);
+  --fs-cgpa: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --fs-stat: clamp(2.25rem, 1.8rem + 1.6vw, 3rem);
+
+  --lh-hero: 1.12;
+  --lh-body: 1.65;
+  --lh-tight: 1.35;
+
+  --content-max: 72.5rem;
+  --pad-x: clamp(1.25rem, 0.75rem + 3vw, 4rem);
+  --section-space: clamp(3.75rem, 4.5vw, 5.5rem);
+  --card-pad: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --heading-gap: clamp(1.75rem, 2.5vw, 2.5rem);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-card: var(--bg-card);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-line: var(--border);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(125, 211, 199, 0.28);
+  color: #f4fffc;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.display {
+  font-family: var(--font-display), var(--font-inter), sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.shell {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+.type-hero {
+  font-size: var(--fs-hero);
+  line-height: var(--lh-hero);
+  font-weight: 600;
+  overflow-wrap: break-word;
+  padding-inline-end: 0.08em;
+}
+
+.type-hero-sub {
+  font-size: var(--fs-hero-sub);
+  line-height: var(--lh-body);
+  font-weight: 400;
+}
+
+.type-section {
+  font-size: var(--fs-section);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+}
+
+.type-card {
+  font-size: var(--fs-card);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+}
+
+.type-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+}
+
+.type-meta {
+  font-size: var(--fs-meta);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.type-degree {
+  font-size: var(--fs-degree);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+}
+
+.type-institution {
+  font-size: var(--fs-institution);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.type-cgpa {
+  font-size: var(--fs-cgpa);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.type-stat {
+  font-size: var(--fs-stat);
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.card-pad {
+  padding: var(--card-pad);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 20%, transparent 75%);
+}
+
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
+.section-pad {
+  padding-block: var(--section-space);
+}
+
+.mobile-nav-toggle {
+  display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
