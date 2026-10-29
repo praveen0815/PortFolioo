@@ -13,24 +13,24 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#07080c",
-          color: "#eceef3",
+          background: "#ff5a12",
+          color: "#ffffff",
           padding: 72,
         }}
       >
-        <div style={{ fontSize: 22, color: "#7dd3c7", letterSpacing: 4 }}>
+        <div style={{ fontSize: 22, color: "#111111", letterSpacing: 4 }}>
           AI SOFTWARE ENGINEER
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 64, fontWeight: 600, lineHeight: 1.1 }}>
             Praveenkumar R
           </div>
-          <div style={{ fontSize: 28, color: "#9299a8", maxWidth: 860 }}>
+          <div style={{ fontSize: 28, color: "rgba(255,255,255,0.82)", maxWidth: 860 }}>
             Building LLM-powered applications, AI agents, conversational systems,
             and backend services.
           </div>
         </div>
-        <div style={{ fontSize: 20, color: "#6d7483" }}>
+        <div style={{ fontSize: 20, color: "rgba(255,255,255,0.78)" }}>
           FastAPI · LLMs · LangChain · AI Agents · Python
         </div>
       </div>

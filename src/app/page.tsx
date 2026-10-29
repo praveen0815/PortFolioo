@@ -8,32 +8,34 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Journey } from "@/components/Journey";
 import { Navbar } from "@/components/Navbar";
-import { NeuralBackground } from "@/components/NeuralBackground";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
+import { TechStrip } from "@/components/TechStrip";
 import { getGithubProfile } from "@/lib/github";
 
 export default async function Home() {
   const github = await getGithubProfile();
 
   return (
-    <div id="top" className="relative">
-      <NeuralBackground />
+    <div className="page-frame">
       <div className="noise" />
-      <Navbar />
-      <main id="main" className="relative z-10">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Journey />
-        <Achievements github={github} />
-        <Education />
-        <Certifications />
-        <Contact />
-      </main>
-      <div className="relative z-10">
+      <div id="top" className="site-frame">
+        <div className="hero-gradient relative overflow-hidden rounded-b-[2.75rem]">
+          <Navbar />
+          <Hero />
+        </div>
+        <main id="main">
+          <TechStrip />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Journey />
+          <Achievements github={github} />
+          <Education />
+          <Certifications />
+          <Contact />
+        </main>
         <Footer />
       </div>
     </div>

@@ -1,19 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -25,24 +18,24 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-        scrolled || open ? "border-b border-line bg-bg/80 backdrop-blur-xl" : "bg-transparent",
+        "relative z-40 transition-colors duration-300",
+        open ? "bg-black/70 backdrop-blur-xl" : "bg-transparent",
       )}
     >
       <nav
-        className="shell flex h-14 items-center justify-between md:h-16"
+        className="shell flex h-16 items-center justify-between lg:h-[4.5rem]"
         aria-label="Primary"
       >
-        <a href="#top" className="display type-meta font-semibold tracking-tight text-ink">
+        <a href="#top" className="display text-sm font-semibold tracking-tight text-ink">
           {site.name}
         </a>
 
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="type-meta text-muted transition-colors hover:text-ink"
+                className="type-meta text-white/80 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
@@ -50,16 +43,16 @@ export function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="type-meta hidden rounded-full border border-line bg-accent-soft px-3.5 py-1.5 text-accent transition-colors hover:border-accent/40 hover:bg-accent/15 md:inline-flex"
-        >
+        <a href="#contact" className="btn-primary type-meta hidden lg:inline-flex">
           Let&apos;s Connect
+          <span className="btn-arrow">
+            <ArrowUpRight size={14} />
+          </span>
         </a>
 
         <button
           type="button"
-          className="mobile-nav-toggle h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-[#111318] text-ink"
+          className="mobile-nav-toggle h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/20 text-ink"
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((value) => !value)}
@@ -76,7 +69,7 @@ export function Navbar() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="border-t border-line bg-bg/95 backdrop-blur-xl md:hidden"
+        className="border-t border-white/10 bg-bg/95 backdrop-blur-xl lg:hidden"
       >
         <ul className="flex flex-col gap-0.5 px-5 py-3">
           {navLinks.map((link) => (
@@ -93,10 +86,13 @@ export function Navbar() {
           <li>
             <a
               href="#contact"
-              className="type-body mt-2 block rounded-xl bg-accent-soft px-3 py-2.5 text-accent"
+              className="btn-primary type-meta mt-2 w-full justify-center"
               onClick={() => setOpen(false)}
             >
               Let&apos;s Connect
+              <span className="btn-arrow">
+                <ArrowUpRight size={14} />
+              </span>
             </a>
           </li>
         </ul>

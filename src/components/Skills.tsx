@@ -30,11 +30,11 @@ export function Skills() {
   );
 
   return (
-    <section id="skills" className="section-pad scroll-mt-20">
+    <section id="skills" className="section-pad scroll-mt-24">
       <Container>
         <Reveal>
           <SectionHeading
-            index="04 / Skills"
+            index="Skills"
             title="A stack weighted toward AI systems and backends."
             description="Core tools are emphasized. Everything else is listed with the weight it actually has in my work."
           />
@@ -42,7 +42,7 @@ export function Skills() {
 
         <Reveal>
           <div
-            className="-mx-[var(--pad-x)] mb-6 flex gap-1.5 overflow-x-auto px-[var(--pad-x)] pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+            className="-mx-[var(--pad-x)] mb-8 flex gap-2 overflow-x-auto px-[var(--pad-x)] pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
             role="tablist"
             aria-label="Skill categories"
           >
@@ -54,10 +54,10 @@ export function Skills() {
                 aria-selected={active === filter.id}
                 onClick={() => setActive(filter.id)}
                 className={cn(
-                  "type-meta shrink-0 rounded-full border px-3 py-1.5 transition-colors",
+                  "type-meta shrink-0 rounded-full px-4 py-2 transition-colors",
                   active === filter.id
-                    ? "border-accent/40 bg-accent-soft text-accent"
-                    : "border-line text-muted hover:text-ink",
+                    ? "bg-accent text-white"
+                    : "bg-white/5 text-muted hover:text-ink",
                 )}
               >
                 {filter.label}
@@ -66,26 +66,26 @@ export function Skills() {
           </div>
         </Reveal>
 
-        <div className="space-y-5">
+        <div className="space-y-8">
           {visibleGroups.map((group) => (
             <Reveal key={group.id}>
               <div>
-                <h3 className="type-meta mb-2 font-mono tracking-[0.16em] text-dim uppercase">
+                <h3 className="type-meta mb-3 tracking-[0.16em] text-dim uppercase">
                   {group.label}
                 </h3>
-                <ul className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-2.5">
                   {group.skills.map((skill) => (
                     <li key={skill.name}>
                       <span
                         title={priorityCopy[skill.priority]}
                         className={cn(
-                          "type-meta inline-flex items-center rounded-full border transition-colors",
+                          "type-meta inline-flex items-center rounded-full transition-colors",
                           skill.priority === "core" &&
-                            "border-accent/35 bg-accent-soft px-3 py-1.5 text-accent hover:border-accent/60",
+                            "bg-accent px-4 py-2 text-white",
                           skill.priority === "strong" &&
-                            "border-line bg-bg-elevated px-3 py-1.5 text-ink hover:border-white/20",
+                            "bg-white/5 px-3.5 py-1.5 text-ink",
                           skill.priority === "working" &&
-                            "border-transparent bg-white/5 px-2.5 py-1 text-muted hover:text-ink",
+                            "px-3 py-1 text-muted",
                         )}
                       >
                         {skill.name}
@@ -97,10 +97,6 @@ export function Skills() {
             </Reveal>
           ))}
         </div>
-
-        <p className="type-meta mt-6 text-dim">
-          Larger, highlighted items are the tools I use most in AI and backend work.
-        </p>
       </Container>
     </section>
   );

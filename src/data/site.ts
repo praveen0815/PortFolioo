@@ -2,7 +2,9 @@ export const site = {
   name: "Praveenkumar R",
   firstName: "Praveenkumar",
   title: "AI Software Engineer",
-  shortTitle: "AI Engineer | LLMs | FastAPI | AI Agents",
+  shortTitle: "AI Software Engineer | LLMs | AI Agents",
+  resumeHref: "/resume.pdf",
+  resumeDownloadName: "Praveenkumar_R_Resume.pdf",
   location: "Coimbatore, Tamil Nadu, India",
   email: "praveen72696@gmail.com",
   phone: "+91 9597345895",
@@ -50,7 +52,7 @@ export const site = {
   contact: {
     heading: "Let's Build Something Intelligent.",
     description:
-      "I'm always interested in opportunities involving AI, LLMs, backend engineering, and intelligent software systems.",
+      "I'm interested in opportunities involving AI, LLMs, backend engineering, and intelligent software systems.",
   },
 } as const;
 

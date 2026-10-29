@@ -4,18 +4,19 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function Certifications() {
   return (
-    <section id="certifications" className="pb-8">
+    <section id="certifications" className="pb-4">
       <Container>
         <Reveal>
-          <div className="glass card-pad flex flex-col gap-4 rounded-2xl sm:flex-row sm:items-center sm:justify-between">
-            <p className="type-meta font-mono tracking-[0.16em] text-dim uppercase">
-              08 / Certifications
+          <div className="rule mb-8" />
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <p className="type-meta tracking-[0.16em] text-accent uppercase">
+              Certifications
             </p>
-            <ul className="flex flex-col gap-3 sm:flex-row sm:gap-8">
+            <ul className="flex flex-col gap-4 sm:flex-row sm:gap-12">
               {certifications.map((item) => (
                 <li key={item.title}>
-                  <p className="type-body text-ink">{item.title}</p>
-                  <p className="type-meta text-muted">{item.issuer}</p>
+                  <p className="display text-lg font-semibold text-ink">{item.title}</p>
+                  <p className="type-meta mt-1 text-muted">{item.issuer}</p>
                 </li>
               ))}
             </ul>

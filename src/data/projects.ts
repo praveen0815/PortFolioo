@@ -8,6 +8,7 @@ export type Project = {
   technologies: string[];
   features: string[];
   github?: string;
+  githubLabel?: string;
   demo?: string;
   note?: string;
 };
@@ -118,5 +119,26 @@ export const projects: Project[] = [
       "Supabase integration",
     ],
     github: "https://github.com/praveen0815/CampSlotAI-New",
+  },
+  {
+    name: "VoiceBox",
+    category: "AI / Voice Technology / Software Engineering",
+    description:
+      "A local-first AI voice studio for on-device speech generation and voice input/output.",
+    problem:
+      "Voice input and output for AI workflows often depend on cloud services.",
+    built:
+      "Work on the open-source VoiceBox codebase: a React frontend, Python FastAPI backend, and Tauri/Rust desktop shell for local voice I/O.",
+    technologies: ["Python", "FastAPI", "React", "Tauri", "Rust"],
+    features: [
+      "Local-first voice studio architecture",
+      "React frontend application",
+      "Python FastAPI backend",
+      "Tauri/Rust desktop shell",
+      "Web and Docker deployment files",
+    ],
+    note: "This repository contains the open-source VoiceBox project. The card describes the documented architecture present in the repo, not a claim that every upstream feature was originally implemented here.",
+    github: "https://github.com/praveen0815/VoiceBox",
+    githubLabel: "View on GitHub",
   },
 ];

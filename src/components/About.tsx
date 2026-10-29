@@ -1,7 +1,7 @@
+import { ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const focus = [
   "LLM-powered applications",
@@ -14,39 +14,41 @@ const focus = [
 
 export function About() {
   return (
-    <section id="about" className="section-pad scroll-mt-20">
+    <section id="about" className="section-pad scroll-mt-24">
       <Container>
-        <Reveal>
-          <SectionHeading
-            index="01 / About"
-            title="Software that reasons, routes, and responds."
-            description="Focused on generative AI, large language models, and the backend systems that make them useful."
-          />
-        </Reveal>
-
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-20">
           <Reveal>
-            <div className="type-body space-y-4 text-muted">
+            <p className="type-meta mb-4 font-medium tracking-[0.16em] text-accent uppercase">
+              Behind the Systems
+            </p>
+            <h2 className="display type-section text-ink">
+              Building Intelligent Software That Solves Real Problems
+            </h2>
+          </Reveal>
+
+          <Reveal delay={0.06}>
+            <p className="type-hero-sub text-muted">
+              I&apos;m focused on generative AI, large language models, conversational systems, and the backend engineering that makes them useful.
+            </p>
+            <div className="type-body mt-6 space-y-4 text-muted">
               {site.about.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="glass card-pad rounded-2xl">
-              <p className="type-meta mb-3 font-mono tracking-[0.16em] text-dim uppercase">
-                Currently focused on
-              </p>
-              <ul className="space-y-2.5">
-                {focus.map((item) => (
-                  <li key={item} className="type-body flex items-start gap-3 text-ink">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {focus.map((item) => (
+                <li key={item} className="type-body flex items-start gap-3 text-ink">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#contact" className="btn-primary type-meta mt-8">
+              Let&apos;s Connect
+              <span className="btn-arrow">
+                <ArrowUpRight size={14} />
+              </span>
+            </a>
           </Reveal>
         </div>
       </Container>

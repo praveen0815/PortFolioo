@@ -1,38 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #07080c;
-  --bg-elevated: #0d0f15;
-  --bg-card: rgba(14, 16, 22, 0.78);
-  --text: #eceef3;
-  --muted: #9299a8;
-  --dim: #6d7483;
-  --accent: #7dd3c7;
-  --accent-soft: rgba(125, 211, 199, 0.14);
-  --accent-2: #aeb8ff;
-  --border: rgba(255, 255, 255, 0.075);
-  --ring: rgba(125, 211, 199, 0.45);
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #141414;
+  --text: #ffffff;
+  --muted: #a3a3a3;
+  --dim: #737373;
+  --accent: #ff5a1f;
+  --accent-soft: rgba(255, 90, 31, 0.14);
+  --accent-2: #ff2d2d;
+  --border: rgba(255, 255, 255, 0.08);
+  --ring: rgba(255, 90, 31, 0.55);
 
-  --fs-hero: clamp(2.25rem, 1.7rem + 2.6vw, 4rem);
-  --fs-hero-sub: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
-  --fs-section: clamp(2rem, 1.7rem + 1.1vw, 2.5rem);
-  --fs-card: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
-  --fs-body: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
-  --fs-meta: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --fs-display: clamp(3.4rem, 8vw, 7.4rem);
+  --fs-hero: clamp(2.4rem, 4.4vw, 4.6rem);
+  --fs-hero-sub: clamp(1.05rem, 1.2vw, 1.35rem);
+  --fs-section: clamp(2.4rem, 4vw, 4.2rem);
+  --fs-card: clamp(1.5rem, 2vw, 2.1rem);
+  --fs-body: clamp(0.98rem, 0.25vw + 0.92rem, 1.05rem);
+  --fs-meta: clamp(0.75rem, 0.15vw + 0.72rem, 0.875rem);
   --fs-degree: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
   --fs-institution: clamp(0.875rem, 0.82rem + 0.2vw, 1rem);
   --fs-cgpa: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
-  --fs-stat: clamp(2.25rem, 1.8rem + 1.6vw, 3rem);
+  --fs-stat: clamp(3rem, 5vw, 5rem);
 
-  --lh-hero: 1.12;
-  --lh-body: 1.65;
-  --lh-tight: 1.35;
+  --lh-hero: 0.92;
+  --lh-body: 1.7;
+  --lh-tight: 1.12;
 
-  --content-max: 72.5rem;
-  --pad-x: clamp(1.25rem, 0.75rem + 3vw, 4rem);
-  --section-space: clamp(3.75rem, 4.5vw, 5.5rem);
-  --card-pad: clamp(1.25rem, 1rem + 1vw, 1.75rem);
-  --heading-gap: clamp(1.75rem, 2.5vw, 2.5rem);
+  --content-max: 72rem;
+  --pad-x: clamp(1.25rem, 4vw, 4.5rem);
+  --section-space: clamp(5rem, 8vw, 8rem);
+  --card-pad: clamp(1.5rem, 2vw, 2.25rem);
+  --heading-gap: clamp(2rem, 3vw, 3.25rem);
 }
 
 @theme inline {
@@ -58,7 +59,6 @@ html {
 
 html,
 body {
-  background: var(--bg);
   color: var(--text);
 }
 
@@ -69,11 +69,15 @@ body {
   font-weight: 400;
   min-height: 100%;
   overflow-x: hidden;
+  background:
+    radial-gradient(90% 70% at 12% 8%, #ff8a2b 0%, transparent 46%),
+    radial-gradient(80% 60% at 92% 12%, #ff2a2a 0%, transparent 42%),
+    linear-gradient(165deg, #ff5a12 0%, #e23a10 38%, #b51d1d 72%, #8a1414 100%);
 }
 
 ::selection {
-  background: rgba(125, 211, 199, 0.28);
-  color: #f4fffc;
+  background: rgba(255, 90, 31, 0.35);
+  color: #fff;
 }
 
 :focus-visible {
@@ -81,9 +85,26 @@ body {
   outline-offset: 3px;
 }
 
+.page-frame {
+  min-height: 100%;
+  padding: clamp(0.75rem, 2vw, 1.75rem) clamp(0.75rem, 2.4vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+}
+
+.site-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--bg);
+  border-radius: 1.5rem 1.5rem 2.75rem 2.75rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
 .display {
   font-family: var(--font-display), var(--font-inter), sans-serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
 }
 
 .shell {
@@ -93,12 +114,16 @@ body {
   padding-inline: var(--pad-x);
 }
 
+.type-display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-hero);
+  font-weight: 700;
+}
+
 .type-hero {
   font-size: var(--fs-hero);
-  line-height: var(--lh-hero);
-  font-weight: 600;
-  overflow-wrap: break-word;
-  padding-inline-end: 0.08em;
+  line-height: var(--lh-tight);
+  font-weight: 700;
 }
 
 .type-hero-sub {
@@ -110,13 +135,13 @@ body {
 .type-section {
   font-size: var(--fs-section);
   line-height: var(--lh-tight);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .type-card {
   font-size: var(--fs-card);
   line-height: var(--lh-tight);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .type-body {
@@ -151,20 +176,91 @@ body {
 
 .type-stat {
   font-size: var(--fs-stat);
-  line-height: 1.1;
-  font-weight: 600;
+  line-height: 1;
+  font-weight: 700;
 }
 
 .card-pad {
   padding: var(--card-pad);
 }
 
-.grid-overlay {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 20%, transparent 75%);
+.section-pad {
+  padding-block: var(--section-space);
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(70% 90% at 78% 42%, rgba(0, 0, 0, 0.55) 0%, transparent 58%),
+    radial-gradient(90% 80% at 18% 20%, rgba(255, 196, 92, 0.35) 0%, transparent 46%),
+    linear-gradient(135deg, #ff7a1a 0%, #ff4d12 42%, #e11d2e 100%);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 999px;
+  background: #ff5a1f;
+  color: #fff;
+  padding: 0.7rem 0.75rem 0.7rem 1.2rem;
+  font-weight: 600;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.btn-primary:hover {
+  background: #ff6d33;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  padding: 0.7rem 0.75rem 0.7rem 1.2rem;
+  font-weight: 600;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.btn-secondary:hover {
+  opacity: 0.92;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+}
+
+.btn-arrow {
+  display: inline-flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+}
+
+.btn-secondary .btn-arrow {
+  background: #ff5a1f;
+  color: #fff;
+}
+
+.panel {
+  background: var(--bg-elevated);
+  border-radius: 1.75rem;
+}
+
+.rule {
+  height: 1px;
+  background: var(--border);
 }
 
 .noise {
@@ -172,26 +268,16 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1;
-  opacity: 0.035;
+  opacity: 0.04;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.glass {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(16px);
-}
-
-.section-pad {
-  padding-block: var(--section-space);
 }
 
 .mobile-nav-toggle {
   display: inline-flex;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobile-nav-toggle {
     display: none;
   }
